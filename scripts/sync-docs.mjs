@@ -24,6 +24,11 @@ const SOURCE = process.env.FORGE_REPO
   : DEFAULT_SOURCE
 const DEST = path.join(ROOT, 'src', 'content', 'docs')
 
+// Astro `base` path. Must match astro.config.mjs `base`.
+// Author-written markdown links don't get the base prefix automatically
+// (only Starlight's own UI links do), so we bake it in during sync.
+const BASE = '/forge-docs'
+
 /**
  * Map: source filename → { slug, title, description }
  * Slug becomes the URL path under /docs.
@@ -94,14 +99,17 @@ function stripExistingFrontmatter(body) {
 
 function rewriteLinks(body) {
   // Forge's docs cross-link as ./getting-started.md or ../docs/api.md.
-  // Strip .md extensions so links resolve to Starlight routes.
+  // Strip .md extensions and prepend the Astro base so links resolve to
+  // /forge-docs/<slug>/ on the deployed site.
+  const slugRename = { release_plan: 'release-plan', release_checklist: 'release-checklist', dependency_backlog: 'dependency-backlog', 'execution-logs': 'execution-logs' }
+  const route = (slug) => `${BASE}/${slugRename[slug] ?? slug}/`
   return body
-    .replace(/\]\(\.\/([\w-]+)\.md(#[^)]*)?\)/g, '](/$1/$2)')
-    .replace(/\]\((\w[\w-]*)\.md(#[^)]*)?\)/g, '](/$1/$2)')
-    .replace(/\]\(\.\.\/CHANGELOG\.md\)/g, '](https://github.com/mai1015/forge/blob/main/CHANGELOG.md)')
-    .replace(/\]\(\.\.\/CONTRIBUTING\.md\)/g, '](https://github.com/mai1015/forge/blob/main/CONTRIBUTING.md)')
-    .replace(/\]\(\.\.\/Makefile\)/g, '](https://github.com/mai1015/forge/blob/main/Makefile)')
-    .replace(/\]\(\.\.\/LICENSE\)/g, '](https://github.com/mai1015/forge/blob/main/LICENSE)')
+    .replace(/\]\(\.\/([\w-]+)\.md(#[^)]*)?\)/g, (_, slug, hash = '') => `](${route(slug)}${hash})`)
+    .replace(/\]\((\w[\w-]*)\.md(#[^)]*)?\)/g, (_, slug, hash = '') => `](${route(slug)}${hash})`)
+    .replace(/\]\(\.\.\/CHANGELOG\.md\)/g, '](https://github.com/ForgeAILab/forge/blob/main/CHANGELOG.md)')
+    .replace(/\]\(\.\.\/CONTRIBUTING\.md\)/g, '](https://github.com/ForgeAILab/forge/blob/main/CONTRIBUTING.md)')
+    .replace(/\]\(\.\.\/Makefile\)/g, '](https://github.com/ForgeAILab/forge/blob/main/Makefile)')
+    .replace(/\]\(\.\.\/LICENSE\)/g, '](https://github.com/ForgeAILab/forge/blob/main/LICENSE)')
 }
 
 async function main() {
@@ -132,7 +140,7 @@ async function main() {
       '---',
       `title: ${JSON.stringify(meta.title)}`,
       `description: ${JSON.stringify(meta.description)}`,
-      `editUrl: https://github.com/mai1015/forge/edit/main/docs/${filename}`,
+      `editUrl: https://github.com/ForgeAILab/forge/edit/main/docs/${filename}`,
       '---',
       '',
     ].join('\n')

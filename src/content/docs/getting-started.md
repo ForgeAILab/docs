@@ -1,7 +1,7 @@
 ---
 title: "Getting started"
 description: "Install Forge, configure agents, and drive a task from todo to done."
-editUrl: https://github.com/mai1015/forge/edit/main/docs/getting-started.md
+editUrl: https://github.com/ForgeAILab/forge/edit/main/docs/getting-started.md
 ---
 # Getting Started
 
@@ -23,10 +23,10 @@ the Homebrew `share/forge` prefix.
 ### Install script (curl)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/mai1015/forge/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ForgeAILab/forge/main/install.sh | bash
 ```
 
-Or grab a tarball directly from [Releases](https://github.com/mai1015/forge/releases).
+Or grab a tarball directly from [Releases](https://github.com/ForgeAILab/forge/releases).
 Archives ship `forge`, `forge-ctl`, and the built web UI assets. The installer puts
 the UI under `/usr/local/share/forge/web/dist`. For a manual install, run `forge`
 from the extracted archive root or set `FORGE_WEB_DIST_DIR` to the extracted
@@ -35,7 +35,7 @@ from the extracted archive root or set `FORGE_WEB_DIST_DIR` to the extracted
 ### Build from source
 
 ```bash
-git clone https://github.com/mai1015/forge.git
+git clone https://github.com/ForgeAILab/forge.git
 cd forge
 cargo build
 cargo run -p forge-cli         # plain start, data in ~/.forge/
@@ -82,7 +82,7 @@ Useful env vars: `FORGE_DATA_DIR`, `FORGE_WORKSPACE_ROOT`,
 ### Local development data dir
 
 `make dev` and friends point data at `./test/` (gitignored) so dev state never
-pollutes `~/.forge`. See the project [Makefile](https://github.com/mai1015/forge/blob/main/Makefile).
+pollutes `~/.forge`. See the project [Makefile](https://github.com/ForgeAILab/forge/blob/main/Makefile).
 
 ## Configuring agents
 
@@ -174,7 +174,7 @@ forge-ctl run --project <ID> --repo <ID> --agent <ID> \
 # Exits 0 on done; 1 on blocked / merge_failed / cancelled.
 ```
 
-Full CLI reference → [docs/cli.md](/cli/).
+Full CLI reference → [docs/cli.md](/forge-docs/cli/).
 
 ## Linking an external daemon
 
@@ -197,7 +197,7 @@ and agent pinning.
 
 ## Where to next
 
-- **API surface** → [api.md](/api/)
-- **How it's wired together** → [architecture.md](/architecture/)
-- **Run agents from your AI tooling** → [api.md#mcp-tools](/api/#mcp-tools)
-- **Contribute** → [../CONTRIBUTING.md](https://github.com/mai1015/forge/blob/main/CONTRIBUTING.md)
+- **API surface** → [api.md](/forge-docs/api/)
+- **How it's wired together** → [architecture.md](/forge-docs/architecture/)
+- **Run agents from your AI tooling** → [api.md#mcp-tools](/forge-docs/api/#mcp-tools)
+- **Contribute** → [../CONTRIBUTING.md](https://github.com/ForgeAILab/forge/blob/main/CONTRIBUTING.md)

@@ -1,7 +1,7 @@
 ---
 title: "REST API & MCP tools"
 description: "HTTP endpoints, pagination, SSE events, and the seven MCP tools."
-editUrl: https://github.com/mai1015/forge/edit/main/docs/api.md
+editUrl: https://github.com/ForgeAILab/forge/edit/main/docs/api.md
 ---
 # API Reference
 
@@ -11,7 +11,7 @@ Do not expose Forge to the public internet without an authenticating reverse
 proxy.
 
 For the conceptual model behind these endpoints see
-[architecture.md](/architecture/).
+[architecture.md](/forge-docs/architecture/).
 
 ## REST endpoints
 
@@ -117,5 +117,5 @@ Disable the endpoint with `forge --no-mcp` if you don't want it.
 
 Execution chat history is backed by Forge JSONL logs plus execution prompt
 metadata, not by agent-private transcript storage. See
-[execution-logs.md](/execution-logs/) for the adapter-specific details and
+[execution-logs.md](/forge-docs/execution-logs/) for the adapter-specific details and
 log schema.

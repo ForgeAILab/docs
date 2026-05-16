@@ -1,7 +1,7 @@
 ---
 title: "forge-ctl CLI"
 description: "Subcommands, daemon link, scripted runs."
-editUrl: https://github.com/mai1015/forge/edit/main/docs/cli.md
+editUrl: https://github.com/ForgeAILab/forge/edit/main/docs/cli.md
 ---
 # forge-ctl
 

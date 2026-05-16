@@ -1,7 +1,7 @@
 ---
 title: "Execution logs"
 description: "JSONL log schema and chat-history reconstruction."
-editUrl: https://github.com/mai1015/forge/edit/main/docs/execution-logs.md
+editUrl: https://github.com/ForgeAILab/forge/edit/main/docs/execution-logs.md
 ---
 # Execution Logs and Chat History
 

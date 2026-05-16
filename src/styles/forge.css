@@ -28,9 +28,12 @@
   --sl-color-bg-sidebar:  #0b0f14;
 }
 
-/* Selection */
+/* Selection — orange tint, text color inherits per-mode */
 ::selection {
   background: rgba(255, 107, 26, 0.35);
+}
+
+:root[data-theme='dark'] ::selection {
   color: white;
 }
 

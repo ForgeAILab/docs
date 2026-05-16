@@ -1,6 +1,6 @@
 # forge-docs
 
-Documentation site for [Forge](https://github.com/mai1015/forge) — the local-first workflow engine for coding agents.
+Documentation site for [Forge](https://github.com/ForgeAILab/forge) — the local-first workflow engine for coding agents.
 
 Built with [Astro Starlight](https://starlight.astro.build). Search is powered by [Pagefind](https://pagefind.app/) — fully local, static, no external service.
 
@@ -12,7 +12,7 @@ Built with [Astro Starlight](https://starlight.astro.build). Search is powered b
 
 ## Content
 
-Doc source lives in the main [forge](https://github.com/mai1015/forge) repo under `docs/*.md` — that's the project's source of truth (CLAUDE.md mandates updating docs in the same change as behavior changes).
+Doc source lives in the main [forge](https://github.com/ForgeAILab/forge) repo under `docs/*.md` — that's the project's source of truth (CLAUDE.md mandates updating docs in the same change as behavior changes).
 
 This site **mirrors** those files into `src/content/docs/` via a sync script.
 

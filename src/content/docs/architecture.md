@@ -1,14 +1,14 @@
 ---
 title: "Architecture"
 description: "Crate graph, task state machine, workflow engine, database."
-editUrl: https://github.com/mai1015/forge/edit/main/docs/architecture.md
+editUrl: https://github.com/ForgeAILab/forge/edit/main/docs/architecture.md
 ---
 # Architecture
 
 Forge is a Rust workspace (12 crates) plus a React/TypeScript frontend. This
 doc explains the crate layout, the task state machine, the database, and the
-event bus. For runtime configuration see [getting-started.md](/getting-started/);
-for the HTTP surface see [api.md](/api/).
+event bus. For runtime configuration see [getting-started.md](/forge-docs/getting-started/);
+for the HTTP surface see [api.md](/forge-docs/api/).
 
 ## Crate layout
 

@@ -3,7 +3,9 @@ import { defineConfig } from 'astro/config'
 import starlight from '@astrojs/starlight'
 
 export default defineConfig({
-  site: 'https://docs.forge.dev',
+  site: 'https://forgeailab.github.io',
+  base: '/forge-docs/',
+  trailingSlash: 'always',
   integrations: [
     starlight({
       title: 'Forge',
@@ -16,10 +18,10 @@ export default defineConfig({
       description:
         'The local-first workflow engine for coding agents. Run Claude Code, Codex, Gemini through a real task lifecycle — isolated worktrees, CI gates, review, merge.',
       social: {
-        github: 'https://github.com/mai1015/forge',
+        github: 'https://github.com/ForgeAILab/forge',
       },
       editLink: {
-        baseUrl: 'https://github.com/mai1015/forge/edit/main/docs/',
+        baseUrl: 'https://github.com/ForgeAILab/forge/edit/main/docs/',
       },
       customCss: ['./src/styles/forge.css'],
       head: [
