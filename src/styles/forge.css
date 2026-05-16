@@ -1,0 +1,54 @@
+/* Forge brand overrides for Starlight */
+
+:root {
+  /* Flame accent ramp — Starlight uses --sl-color-accent-* */
+  --sl-color-accent-low:  #4a1d05;
+  --sl-color-accent:      #ff6b1a;
+  --sl-color-accent-high: #ffb37a;
+
+  /* Greyscale — keep Starlight's defaults for light mode */
+}
+
+:root[data-theme='dark'] {
+  --sl-color-accent-low:  #3a1605;
+  --sl-color-accent:      #ff6b1a;
+  --sl-color-accent-high: #ffd4b0;
+
+  --sl-color-white:       #ffffff;
+  --sl-color-gray-1:      #e7e9ec;
+  --sl-color-gray-2:      #c0c4cb;
+  --sl-color-gray-3:      #8a8f99;
+  --sl-color-gray-4:      #4a4f57;
+  --sl-color-gray-5:      #1f2630;
+  --sl-color-gray-6:      #161c24;
+  --sl-color-black:       #0b0f14;
+
+  --sl-color-bg:          #0b0f14;
+  --sl-color-bg-nav:      rgba(11, 15, 20, 0.85);
+  --sl-color-bg-sidebar:  #0b0f14;
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 107, 26, 0.35);
+  color: white;
+}
+
+/* Make the wordmark a sensible size in the header */
+.site-title img {
+  height: 28px;
+  width: auto;
+}
+
+/* Add a subtle flame glow behind the active sidebar item */
+.sidebar-content a[aria-current='page'] {
+  background: linear-gradient(90deg, rgba(255, 107, 26, 0.12), transparent);
+  border-left: 2px solid var(--sl-color-accent);
+}
+
+/* Inline code looks better with a flame tint */
+:not(pre) > code {
+  color: var(--sl-color-accent-high);
+  background: rgba(255, 107, 26, 0.08);
+  border: 1px solid rgba(255, 107, 26, 0.15);
+}

@@ -1,0 +1,21 @@
+{
+  "name": "forge-docs",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "sync-docs": "node scripts/sync-docs.mjs"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/starlight": "^0.30.6",
+    "astro": "^5.1.5",
+    "sharp": "^0.33.5",
+    "typescript": "^5.6.3"
+  }
+}

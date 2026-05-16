@@ -1,0 +1,54 @@
+---
+title: Forge
+description: The local-first workflow engine for coding agents. Plug it into Claude Code, Codex, or any MCP-aware agent and operate tasks safely — isolated worktrees, CI gates, review, merge.
+template: splash
+hero:
+  tagline: The local-first workflow engine for coding agents. Plug it into Claude Code, Codex, or any MCP-aware agent and ship work by chatting.
+  image:
+    file: ../../assets/forge-wordmark.png
+  actions:
+    - text: Get started
+      link: /getting-started/
+      icon: right-arrow
+      variant: primary
+    - text: View on GitHub
+      link: https://github.com/mai1015/forge
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## What is Forge?
+
+Forge is a single Rust binary that gives every coding-agent task a real lifecycle:
+`todo → in_progress → review → merging → done`. Each task gets its own isolated git
+worktree, a configurable CI review gate, and an audit log. You drive it through a REST
+API, an MCP endpoint, the `forge-ctl` CLI, or the built-in web UI — all served from
+`127.0.0.1:8080`.
+
+<CardGrid stagger>
+  <Card title="Plug into your agent" icon="puzzle">
+    Forge speaks MCP. Add `http://127.0.0.1:8080/mcp` to Claude Code, Codex, Cursor,
+    or any MCP-aware client and your chat workflow becomes a task pipeline.
+  </Card>
+  <Card title="Isolated worktrees" icon="seti:folder">
+    Every task runs in its own git checkout with file-locking and path guardrails.
+    Agents can't step on each other; you can throw work away cleanly.
+  </Card>
+  <Card title="CI review gates" icon="approve-check">
+    Declare `ci_steps` per task; the review runner blocks merge until they pass.
+    Combine with auditor-style checks for human-in-the-loop.
+  </Card>
+  <Card title="Local-first, MIT" icon="laptop">
+    SQLite + WAL, binds to `127.0.0.1`, no accounts, no telemetry, no SaaS.
+    Your code never leaves your machine.
+  </Card>
+</CardGrid>
+
+## Where next?
+
+- **[Getting started](/getting-started/)** — Install, configure agents, drive a task end-to-end.
+- **[REST API & MCP tools](/api/)** — Endpoints, pagination, SSE, the seven `forge_*` MCP tools.
+- **[Architecture](/architecture/)** — Crate graph, task state machine, workflow engine, database.
+- **[forge-ctl CLI](/cli/)** — Subcommands, daemon link, scripted runs.
