@@ -56,15 +56,6 @@ export default defineConfig({
           label: 'Internals',
           items: [
             { label: 'Architecture', slug: 'architecture' },
-            { label: 'Product spec (PRD)', slug: 'prd' },
-          ],
-        },
-        {
-          label: 'Project',
-          items: [
-            { label: 'Release plan', slug: 'release-plan' },
-            { label: 'Release checklist', slug: 'release-checklist' },
-            { label: 'Dependency backlog', slug: 'dependency-backlog' },
           ],
         },
       ],

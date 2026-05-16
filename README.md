@@ -14,7 +14,7 @@ Built with [Astro Starlight](https://starlight.astro.build). Search is powered b
 
 Doc source lives in the main [forge](https://github.com/ForgeAILab/forge) repo under `docs/*.md` — that's the project's source of truth (CLAUDE.md mandates updating docs in the same change as behavior changes).
 
-This site **mirrors** those files into `src/content/docs/` via a sync script.
+This site **mirrors public product documentation** into `src/content/docs/` via a sync script. Internal planning, release, PRD, and dependency-tracking documents are intentionally not mirrored into this docs site.
 
 ### Re-syncing
 
@@ -65,10 +65,6 @@ src/
       architecture.md
       cli.md
       execution-logs.md
-      prd.md
-      release-plan.md
-      release-checklist.md
-      dependency-backlog.md
   styles/
     forge.css          # brand color overrides (dark theme default, flame accent)
   assets/

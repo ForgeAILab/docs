@@ -59,26 +59,6 @@ const FILES = {
     title: 'Architecture',
     description: 'Crate graph, task state machine, workflow engine, database.',
   },
-  'prd.md': {
-    slug: 'prd',
-    title: 'Product spec (PRD)',
-    description: 'Long-form product definition.',
-  },
-  'release_plan.md': {
-    slug: 'release-plan',
-    title: 'Release plan',
-    description: 'OSS-first GTM strategy and roadmap to 1.0.',
-  },
-  'release_checklist.md': {
-    slug: 'release-checklist',
-    title: 'Release checklist',
-    description: 'Pre-flight checklist for cutting a release.',
-  },
-  'dependency_backlog.md': {
-    slug: 'dependency-backlog',
-    title: 'Dependency backlog',
-    description: 'Tracked dependency updates and known issues.',
-  },
 }
 
 async function exists(p) {
@@ -101,7 +81,7 @@ function rewriteLinks(body) {
   // Forge's docs cross-link as ./getting-started.md or ../docs/api.md.
   // Strip .md extensions and prepend the Astro base so links resolve to
   // /forge-docs/<slug>/ on the deployed site.
-  const slugRename = { release_plan: 'release-plan', release_checklist: 'release-checklist', dependency_backlog: 'dependency-backlog', 'execution-logs': 'execution-logs' }
+  const slugRename = { 'execution-logs': 'execution-logs' }
   const route = (slug) => `${BASE}/${slugRename[slug] ?? slug}/`
   return body
     .replace(/\]\(\.\/([\w-]+)\.md(#[^)]*)?\)/g, (_, slug, hash = '') => `](${route(slug)}${hash})`)
