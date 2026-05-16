@@ -12,7 +12,7 @@ These pages explain the building blocks of Forge. Read them in any order, or sta
 | [Agents](/docs/concepts/agents/) | Registered executors and the daemons they run on; adapters, heartbeats, and resource limits |
 | [Tasks](/docs/concepts/tasks/) | The task record, status lifecycle, and how work moves from `todo` to `done` |
 | [Workspaces](/docs/concepts/workspaces/) | Per-task git worktrees, filesystem locks, and cleanup |
-| [Workflows](/docs/concepts/workflows/) | Default workflow, custom workflows, state kinds, and role assignments |
+| [Workflows](/docs/concepts/workflows/) | Default workflow, state kinds, roles, gates, retries, and how to define a custom one |
 | [Review and merge](/docs/concepts/review-and-merge/) | CI gate steps, the auditor role, retry budgets, and merge strategy |
 | [Subtasks and dependencies](/docs/concepts/subtasks-and-dependencies/) | Ordered vs independent subtasks and the dependency claim gate |
 | [Hooks](/docs/concepts/hooks/) | Lifecycle hooks, blocking guards, and plugins |

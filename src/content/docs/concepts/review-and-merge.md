@@ -74,7 +74,7 @@ When CI passes and the auditor (if configured) returns a pass verdict:
 ## Failed reviews and follow-up dispatch
 
 When a review fails — either from a failing CI step or an auditor `FAIL` verdict
-— and the task still has retries in the [gate budget](/docs/concepts/workflows/#gate-retry-budgets),
+— and the task still has retries in the [gate budget](/docs/concepts/workflows/gates/),
 Forge automatically:
 
 1. Dispatches a new coder execution. For Codex executors, the prior thread is
