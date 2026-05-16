@@ -14,12 +14,18 @@
   /* Starlight redefines --sl-color-black as white in light mode, which becomes
      --sl-color-text-invert — override so active sidebar text stays dark on orange */
   --sl-color-text-invert: #1a0800;
+  /* flame-50 as the subtle tint for asides/blockquotes in light mode */
+  --sl-color-accent-low:  #FFF4EC;
+  /* darker orange for readable text/links on white */
+  --sl-color-accent:      #E55408;
+  /* flame-600 for inline code text — replaces Starlight's default blue */
+  --sl-color-accent-high: #E55408;
 }
 
 :root[data-theme='dark'] {
   --sl-color-accent-low:  #3a1605;
   --sl-color-accent:      #ff6b1a;
-  --sl-color-accent-high: #ffd4b0;
+  --sl-color-accent-high: #FFB37A;  /* flame-300 — matches main site */
 
   --sl-color-white:       #ffffff;
   --sl-color-gray-1:      #e7e9ec;
@@ -46,7 +52,7 @@
 
 /* Make the wordmark a sensible size in the header */
 .site-title img {
-  height: 28px;
+  height: 44px;
   width: auto;
 }
 

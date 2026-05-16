@@ -10,8 +10,8 @@ export default defineConfig({
     starlight({
       title: 'Forge',
       logo: {
-        light: './src/assets/forge-wordmark-light.png',
-        dark: './src/assets/forge-wordmark-dark.png',
+        light: './src/assets/forge-wordmark-transparent-small-dark.png',
+        dark: './src/assets/forge-wordmark-transparent-small-light.png',
         replacesTitle: true,
       },
       favicon: '/favicon.png',
@@ -59,6 +59,11 @@ export default defineConfig({
           ],
         },
       ],
+      expressiveCode: {
+        // Force a single dark theme so code blocks are never rendered
+        // in the default blue-tinted github-light theme in light mode.
+        themes: ['github-dark'],
+      },
       components: {
         ThemeSelect: './src/components/ThemeToggle.astro',
       },
