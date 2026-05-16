@@ -68,7 +68,9 @@ export default defineConfig({
           ],
         },
       ],
-      components: {},
+      components: {
+        ThemeSelect: './src/components/ThemeToggle.astro',
+      },
     }),
   ],
 })

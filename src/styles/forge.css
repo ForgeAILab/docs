@@ -6,7 +6,14 @@
   --sl-color-accent:      #ff6b1a;
   --sl-color-accent-high: #ffb37a;
 
-  /* Greyscale — keep Starlight's defaults for light mode */
+  /* Active sidebar link: dark warm text reads well on the peach/orange accent bg */
+  --sl-color-text-invert: #1a0800;
+}
+
+:root[data-theme='light'] {
+  /* Starlight redefines --sl-color-black as white in light mode, which becomes
+     --sl-color-text-invert — override so active sidebar text stays dark on orange */
+  --sl-color-text-invert: #1a0800;
 }
 
 :root[data-theme='dark'] {
@@ -43,10 +50,14 @@
   width: auto;
 }
 
-/* Add a subtle flame glow behind the active sidebar item */
-.sidebar-content a[aria-current='page'] {
-  background: linear-gradient(90deg, rgba(255, 107, 26, 0.12), transparent);
+/* Active sidebar item — flame glow with always-readable text */
+.sidebar-content a[aria-current='page'],
+.sidebar-content a[aria-current='page']:hover,
+.sidebar-content a[aria-current='page']:focus {
+  background: linear-gradient(90deg, rgba(255, 107, 26, 0.2), transparent);
   border-left: 2px solid var(--sl-color-accent);
+  /* --sl-color-white = #fff in dark mode, near-black in light mode — always contrasts */
+  color: var(--sl-color-white);
 }
 
 /* Inline code looks better with a flame tint */

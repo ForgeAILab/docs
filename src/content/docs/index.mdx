@@ -1,9 +1,9 @@
 ---
 title: Forge
-description: The local-first workflow engine for coding agents. Plug it into Claude Code, Codex, or any MCP-aware agent and operate tasks safely — isolated worktrees, CI gates, review, merge.
+description: The self-hosted workflow engine for coding agents. Plug it into Claude Code, Codex, or any MCP-aware agent and operate tasks with isolated worktrees, CI gates, review, and merge.
 template: splash
 hero:
-  tagline: The local-first workflow engine for coding agents. Plug it into Claude Code, Codex, or any MCP-aware agent and ship work by chatting.
+  tagline: The self-hosted workflow engine for coding agents. Plug it into Claude Code, Codex, or any MCP-aware agent and ship work from chat.
   image:
     dark: ../../assets/forge-wordmark-dark.png
     light: ../../assets/forge-wordmark-light.png
@@ -41,9 +41,9 @@ API, an MCP endpoint, the `forge-ctl` CLI, or the built-in web UI — all served
     Declare `ci_steps` per task; the review runner blocks merge until they pass.
     Combine with auditor-style checks for human-in-the-loop.
   </Card>
-  <Card title="Local-first, MIT" icon="laptop">
-    SQLite + WAL, binds to `127.0.0.1`, no accounts, no telemetry, no SaaS.
-    Your code never leaves your machine.
+  <Card title="Self-hosted, MIT" icon="laptop">
+    Run Forge in your own environment. SQLite + WAL, no accounts, no telemetry,
+    no SaaS — your code never leaves your infrastructure.
   </Card>
 </CardGrid>
 

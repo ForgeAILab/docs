@@ -1,0 +1,497 @@
+- generic [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#_top"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Forge" [ref=e7] [cursor=pointer]:
+          - /url: /forge-docs/
+          - generic [ref=e8]: Forge
+        - button "Search" [ref=e11] [cursor=pointer]:
+          - img [ref=e12]
+          - generic [ref=e14]: Search
+          - generic [ref=e15]:
+            - generic [ref=e16]: ⌘
+            - generic [ref=e17]: K
+        - generic [ref=e18]:
+          - link "GitHub" [ref=e20] [cursor=pointer]:
+            - /url: https://github.com/ForgeAILab/forge
+            - generic [ref=e21]: GitHub
+            - img [ref=e22]
+          - button "Toggle color theme" [active] [ref=e25] [cursor=pointer]:
+            - img [ref=e469]
+    - navigation "Main":
+      - list [ref=e31]:
+        - listitem [ref=e32]:
+          - group [ref=e33]:
+            - generic "Get started" [ref=e34] [cursor=pointer]:
+              - generic [ref=e35]: Get started
+              - img [ref=e36]
+            - list [ref=e38]:
+              - listitem [ref=e39]:
+                - link "Introduction" [ref=e40] [cursor=pointer]:
+                  - /url: /forge-docs/
+              - listitem [ref=e41]:
+                - link "Getting started" [ref=e42] [cursor=pointer]:
+                  - /url: /forge-docs/getting-started/
+        - listitem [ref=e43]:
+          - group [ref=e44]:
+            - generic "Reference" [ref=e45] [cursor=pointer]:
+              - generic [ref=e46]: Reference
+              - img [ref=e47]
+            - list [ref=e49]:
+              - listitem [ref=e50]:
+                - link "REST API & MCP tools" [ref=e51] [cursor=pointer]:
+                  - /url: /forge-docs/api/
+              - listitem [ref=e52]:
+                - link "forge-ctl CLI" [ref=e53] [cursor=pointer]:
+                  - /url: /forge-docs/cli/
+              - listitem [ref=e54]:
+                - link "Execution logs" [ref=e55] [cursor=pointer]:
+                  - /url: /forge-docs/execution-logs/
+        - listitem [ref=e56]:
+          - group [ref=e57]:
+            - generic "Internals" [ref=e58] [cursor=pointer]:
+              - generic [ref=e59]: Internals
+              - img [ref=e60]
+            - list [ref=e62]:
+              - listitem [ref=e63]:
+                - link "Architecture" [ref=e64] [cursor=pointer]:
+                  - /url: /forge-docs/architecture/
+              - listitem [ref=e65]:
+                - link "Product spec (PRD)" [ref=e66] [cursor=pointer]:
+                  - /url: /forge-docs/prd/
+        - listitem [ref=e67]:
+          - group [ref=e68]:
+            - generic "Project" [ref=e69] [cursor=pointer]:
+              - generic [ref=e70]: Project
+              - img [ref=e71]
+            - list [ref=e73]:
+              - listitem [ref=e74]:
+                - link "Release plan" [ref=e75] [cursor=pointer]:
+                  - /url: /forge-docs/release-plan/
+              - listitem [ref=e76]:
+                - link "Release checklist" [ref=e77] [cursor=pointer]:
+                  - /url: /forge-docs/release-checklist/
+              - listitem [ref=e78]:
+                - link "Dependency backlog" [ref=e79] [cursor=pointer]:
+                  - /url: /forge-docs/dependency-backlog/
+    - generic [ref=e81]:
+      - complementary [ref=e82]:
+        - navigation "On this page" [ref=e87]:
+          - heading "On this page" [level=2] [ref=e88]
+          - list [ref=e89]:
+            - listitem [ref=e90]:
+              - link "Overview" [ref=e91] [cursor=pointer]:
+                - /url: "#_top"
+            - listitem [ref=e92]:
+              - link "REST endpoints" [ref=e93] [cursor=pointer]:
+                - /url: "#rest-endpoints"
+            - listitem [ref=e94]:
+              - link "Pagination" [ref=e95] [cursor=pointer]:
+                - /url: "#pagination"
+              - list [ref=e96]:
+                - listitem [ref=e97]:
+                  - link "Query parameters" [ref=e98] [cursor=pointer]:
+                    - /url: "#query-parameters"
+            - listitem [ref=e99]:
+              - link "Errors" [ref=e100] [cursor=pointer]:
+                - /url: "#errors"
+            - listitem [ref=e101]:
+              - link "Server-Sent Events" [ref=e102] [cursor=pointer]:
+                - /url: "#server-sent-events"
+            - listitem [ref=e103]:
+              - link "MCP tools" [ref=e104] [cursor=pointer]:
+                - /url: "#mcp-tools"
+            - listitem [ref=e105]:
+              - link "Execution logs" [ref=e106] [cursor=pointer]:
+                - /url: "#execution-logs"
+      - main [ref=e108]:
+        - heading "REST API & MCP tools" [level=1] [ref=e111]
+        - generic [ref=e113]:
+          - generic [ref=e114]:
+            - heading "API Reference" [level=1] [ref=e115]
+            - paragraph [ref=e116]:
+              - text: All endpoints are under
+              - code [ref=e117]: /api/v1/
+              - text: . The MCP endpoint is
+              - code [ref=e118]: POST /mcp
+              - text: . The default bind is
+              - code [ref=e119]: 127.0.0.1:8080
+              - text: .
+              - strong [ref=e120]: No authentication is required (localhost-only MVP).
+              - text: Do not expose Forge to the public internet without an authenticating reverse proxy.
+            - paragraph [ref=e121]:
+              - text: For the conceptual model behind these endpoints see
+              - link "architecture.md" [ref=e122] [cursor=pointer]:
+                - /url: /forge-docs/architecture/
+              - text: .
+            - heading "REST endpoints" [level=2] [ref=e123]
+            - table [ref=e124]:
+              - rowgroup [ref=e125]:
+                - row "Method Path Description" [ref=e126]:
+                  - columnheader "Method" [ref=e127]
+                  - columnheader "Path" [ref=e128]
+                  - columnheader "Description" [ref=e129]
+              - rowgroup [ref=e130]:
+                - row "POST /api/v1/projects Create project" [ref=e131]:
+                  - cell "POST" [ref=e132]
+                  - cell "/api/v1/projects" [ref=e133]:
+                    - code [ref=e134]: /api/v1/projects
+                  - cell "Create project" [ref=e135]
+                - row "GET /api/v1/projects List projects" [ref=e136]:
+                  - cell "GET" [ref=e137]
+                  - cell "/api/v1/projects" [ref=e138]:
+                    - code [ref=e139]: /api/v1/projects
+                  - cell "List projects" [ref=e140]
+                - 'row "GET /api/v1/projects/{id} Get project" [ref=e141]':
+                  - cell "GET" [ref=e142]
+                  - 'cell "/api/v1/projects/{id}" [ref=e143]':
+                    - code [ref=e144]: "/api/v1/projects/{id}"
+                  - cell "Get project" [ref=e145]
+                - 'row "PATCH /api/v1/projects/{id} Update project" [ref=e146]':
+                  - cell "PATCH" [ref=e147]
+                  - 'cell "/api/v1/projects/{id}" [ref=e148]':
+                    - code [ref=e149]: "/api/v1/projects/{id}"
+                  - cell "Update project" [ref=e150]
+                - 'row "POST /api/v1/projects/{id}/repos Create repo" [ref=e151]':
+                  - cell "POST" [ref=e152]
+                  - 'cell "/api/v1/projects/{id}/repos" [ref=e153]':
+                    - code [ref=e154]: "/api/v1/projects/{id}/repos"
+                  - cell "Create repo" [ref=e155]
+                - 'row "GET /api/v1/projects/{id}/repos List repos" [ref=e156]':
+                  - cell "GET" [ref=e157]
+                  - 'cell "/api/v1/projects/{id}/repos" [ref=e158]':
+                    - code [ref=e159]: "/api/v1/projects/{id}/repos"
+                  - cell "List repos" [ref=e160]
+                - 'row "POST /api/v1/projects/{id}/tasks Create task" [ref=e161]':
+                  - cell "POST" [ref=e162]
+                  - 'cell "/api/v1/projects/{id}/tasks" [ref=e163]':
+                    - code [ref=e164]: "/api/v1/projects/{id}/tasks"
+                  - cell "Create task" [ref=e165]
+                - 'row "GET /api/v1/projects/{id}/tasks List tasks (paginated, filterable)" [ref=e166]':
+                  - cell "GET" [ref=e167]
+                  - 'cell "/api/v1/projects/{id}/tasks" [ref=e168]':
+                    - code [ref=e169]: "/api/v1/projects/{id}/tasks"
+                  - cell "List tasks (paginated, filterable)" [ref=e170]
+                - 'row "GET /api/v1/tasks/{id} Get task" [ref=e171]':
+                  - cell "GET" [ref=e172]
+                  - 'cell "/api/v1/tasks/{id}" [ref=e173]':
+                    - code [ref=e174]: "/api/v1/tasks/{id}"
+                  - cell "Get task" [ref=e175]
+                - 'row "PATCH /api/v1/tasks/{id} Update task" [ref=e176]':
+                  - cell "PATCH" [ref=e177]
+                  - 'cell "/api/v1/tasks/{id}" [ref=e178]':
+                    - code [ref=e179]: "/api/v1/tasks/{id}"
+                  - cell "Update task" [ref=e180]
+                - 'row "DELETE /api/v1/tasks/{id} Soft-delete task" [ref=e181]':
+                  - cell "DELETE" [ref=e182]
+                  - 'cell "/api/v1/tasks/{id}" [ref=e183]':
+                    - code [ref=e184]: "/api/v1/tasks/{id}"
+                  - cell "Soft-delete task" [ref=e185]
+                - 'row "POST /api/v1/tasks/{id}/claim Claim task (auto-dispatches the executor)" [ref=e186]':
+                  - cell "POST" [ref=e187]
+                  - 'cell "/api/v1/tasks/{id}/claim" [ref=e188]':
+                    - code [ref=e189]: "/api/v1/tasks/{id}/claim"
+                  - cell "Claim task (auto-dispatches the executor)" [ref=e190]
+                - 'row "POST /api/v1/tasks/{id}/cancel Cancel task (idempotent)" [ref=e191]':
+                  - cell "POST" [ref=e192]
+                  - 'cell "/api/v1/tasks/{id}/cancel" [ref=e193]':
+                    - code [ref=e194]: "/api/v1/tasks/{id}/cancel"
+                  - cell "Cancel task (idempotent)" [ref=e195]
+                - 'row "POST /api/v1/tasks/{id}/archive Archive task (hidden from default lists)" [ref=e196]':
+                  - cell "POST" [ref=e197]
+                  - 'cell "/api/v1/tasks/{id}/archive" [ref=e198]':
+                    - code [ref=e199]: "/api/v1/tasks/{id}/archive"
+                  - cell "Archive task (hidden from default lists)" [ref=e200]
+                - 'row "POST /api/v1/tasks/{id}/transition Transition status; entering review returns {task, review} inline" [ref=e201]':
+                  - cell "POST" [ref=e202]
+                  - 'cell "/api/v1/tasks/{id}/transition" [ref=e203]':
+                    - code [ref=e204]: "/api/v1/tasks/{id}/transition"
+                  - 'cell "Transition status; entering review returns {task, review} inline" [ref=e205]':
+                    - text: Transition status; entering
+                    - code [ref=e206]: review
+                    - text: returns
+                    - code [ref=e207]: "{task, review}"
+                    - text: inline
+                - 'row "POST /api/v1/tasks/{id}/review Re-run the CI steps without changing state" [ref=e208]':
+                  - cell "POST" [ref=e209]
+                  - 'cell "/api/v1/tasks/{id}/review" [ref=e210]':
+                    - code [ref=e211]: "/api/v1/tasks/{id}/review"
+                  - cell "Re-run the CI steps without changing state" [ref=e212]
+                - 'row "GET /api/v1/tasks/{id}/transitions Audit log of state transitions" [ref=e213]':
+                  - cell "GET" [ref=e214]
+                  - 'cell "/api/v1/tasks/{id}/transitions" [ref=e215]':
+                    - code [ref=e216]: "/api/v1/tasks/{id}/transitions"
+                  - cell "Audit log of state transitions" [ref=e217]
+                - row "POST /api/v1/agents Register agent" [ref=e218]:
+                  - cell "POST" [ref=e219]
+                  - cell "/api/v1/agents" [ref=e220]:
+                    - code [ref=e221]: /api/v1/agents
+                  - cell "Register agent" [ref=e222]
+                - row "GET /api/v1/agents List agents" [ref=e223]:
+                  - cell "GET" [ref=e224]
+                  - cell "/api/v1/agents" [ref=e225]:
+                    - code [ref=e226]: /api/v1/agents
+                  - cell "List agents" [ref=e227]
+                - 'row "GET /api/v1/agents/{id} Get agent" [ref=e228]':
+                  - cell "GET" [ref=e229]
+                  - 'cell "/api/v1/agents/{id}" [ref=e230]':
+                    - code [ref=e231]: "/api/v1/agents/{id}"
+                  - cell "Get agent" [ref=e232]
+                - 'row "GET /api/v1/tasks/{id}/executions List executions" [ref=e233]':
+                  - cell "GET" [ref=e234]
+                  - 'cell "/api/v1/tasks/{id}/executions" [ref=e235]':
+                    - code [ref=e236]: "/api/v1/tasks/{id}/executions"
+                  - cell "List executions" [ref=e237]
+                - 'row "GET /api/v1/executions/{id} Get execution" [ref=e238]':
+                  - cell "GET" [ref=e239]
+                  - 'cell "/api/v1/executions/{id}" [ref=e240]':
+                    - code [ref=e241]: "/api/v1/executions/{id}"
+                  - cell "Get execution" [ref=e242]
+                - 'row "GET /api/v1/executions/{id}/logs Get execution logs" [ref=e243]':
+                  - cell "GET" [ref=e244]
+                  - 'cell "/api/v1/executions/{id}/logs" [ref=e245]':
+                    - code [ref=e246]: "/api/v1/executions/{id}/logs"
+                  - cell "Get execution logs" [ref=e247]
+                - row "GET /api/v1/events Server-sent events stream" [ref=e248]:
+                  - cell "GET" [ref=e249]
+                  - cell "/api/v1/events" [ref=e250]:
+                    - code [ref=e251]: /api/v1/events
+                  - cell "Server-sent events stream" [ref=e252]
+                - row "POST /mcp MCP JSON-RPC endpoint" [ref=e253]:
+                  - cell "POST" [ref=e254]
+                  - cell "/mcp" [ref=e255]:
+                    - code [ref=e256]: /mcp
+                  - cell "MCP JSON-RPC endpoint" [ref=e257]
+            - heading "Pagination" [level=2] [ref=e258]
+            - paragraph [ref=e259]:
+              - text: "All list endpoints use opaque keyset cursors: base64-encoded JSON"
+              - code [ref=e260]: "{sort_by, sort_order, last_value, last_id}"
+              - text: . The
+              - code [ref=e261]: db
+              - text: layer queries
+              - code [ref=e262]: limit + 1
+              - text: rows to determine
+              - code [ref=e263]: has_more
+              - text: . The response field is
+              - code [ref=e264]: items
+              - text: (not
+              - code [ref=e265]: data
+              - text: ).
+            - heading "Query parameters" [level=3] [ref=e266]
+            - table [ref=e267]:
+              - rowgroup [ref=e268]:
+                - row "Param Description" [ref=e269]:
+                  - columnheader "Param" [ref=e270]
+                  - columnheader "Description" [ref=e271]
+              - rowgroup [ref=e272]:
+                - row "cursor Opaque pagination cursor returned from the previous page" [ref=e273]:
+                  - cell "cursor" [ref=e274]:
+                    - code [ref=e275]: cursor
+                  - cell "Opaque pagination cursor returned from the previous page" [ref=e276]
+                - row "limit Page size (default 20, max 100)" [ref=e277]:
+                  - cell "limit" [ref=e278]:
+                    - code [ref=e279]: limit
+                  - cell "Page size (default 20, max 100)" [ref=e280]
+                - row "sort_by created_at, updated_at, priority, board_position, title, status, agent, task_type, id" [ref=e281]:
+                  - cell "sort_by" [ref=e282]:
+                    - code [ref=e283]: sort_by
+                  - cell "created_at, updated_at, priority, board_position, title, status, agent, task_type, id" [ref=e284]:
+                    - code [ref=e285]: created_at
+                    - text: ","
+                    - code [ref=e286]: updated_at
+                    - text: ","
+                    - code [ref=e287]: priority
+                    - text: ","
+                    - code [ref=e288]: board_position
+                    - text: ","
+                    - code [ref=e289]: title
+                    - text: ","
+                    - code [ref=e290]: status
+                    - text: ","
+                    - code [ref=e291]: agent
+                    - text: ","
+                    - code [ref=e292]: task_type
+                    - text: ","
+                    - code [ref=e293]: id
+                - row "sort_order asc, desc" [ref=e294]:
+                  - cell "sort_order" [ref=e295]:
+                    - code [ref=e296]: sort_order
+                  - cell "asc, desc" [ref=e297]:
+                    - code [ref=e298]: asc
+                    - text: ","
+                    - code [ref=e299]: desc
+                - row "status Comma-separated status filter" [ref=e300]:
+                  - cell "status" [ref=e301]:
+                    - code [ref=e302]: status
+                  - cell "Comma-separated status filter" [ref=e303]
+                - row "agent_id Comma-separated agent filter" [ref=e304]:
+                  - cell "agent_id" [ref=e305]:
+                    - code [ref=e306]: agent_id
+                  - cell "Comma-separated agent filter" [ref=e307]
+                - row "assignee_type Comma-separated assignee type filter (agent, user)" [ref=e308]:
+                  - cell "assignee_type" [ref=e309]:
+                    - code [ref=e310]: assignee_type
+                  - cell "Comma-separated assignee type filter (agent, user)" [ref=e311]:
+                    - text: Comma-separated assignee type filter (
+                    - code [ref=e312]: agent
+                    - text: ","
+                    - code [ref=e313]: user
+                    - text: )
+                - row "assignee_id Comma-separated assignee id / user-handle filter" [ref=e314]:
+                  - cell "assignee_id" [ref=e315]:
+                    - code [ref=e316]: assignee_id
+                  - cell "Comma-separated assignee id / user-handle filter" [ref=e317]
+                - row "include_cancelled Include cancelled tasks (default false unless status includes cancelled)" [ref=e318]:
+                  - cell "include_cancelled" [ref=e319]:
+                    - code [ref=e320]: include_cancelled
+                  - cell "Include cancelled tasks (default false unless status includes cancelled)" [ref=e321]:
+                    - text: Include cancelled tasks (default false unless
+                    - code [ref=e322]: status
+                    - text: includes
+                    - code [ref=e323]: cancelled
+                    - text: )
+                - row "include_archived Include archived tasks (default false)" [ref=e324]:
+                  - cell "include_archived" [ref=e325]:
+                    - code [ref=e326]: include_archived
+                  - cell "Include archived tasks (default false)" [ref=e327]
+                - row "include_total Include total count in response" [ref=e328]:
+                  - cell "include_total" [ref=e329]:
+                    - code [ref=e330]: include_total
+                  - cell "Include total count in response" [ref=e331]
+            - heading "Errors" [level=2] [ref=e332]
+            - paragraph [ref=e333]: "All errors render as:"
+            - figure [ref=e335]:
+              - code [ref=e337]:
+                - generic [ref=e339]: "{"
+                - generic [ref=e341]: "\"code\": \"version_conflict\","
+                - generic [ref=e343]: "\"message\": \"task version mismatch\","
+                - generic [ref=e345]: "\"details\": { \"expected\": 3, \"actual\": 4 },"
+                - generic [ref=e347]: "\"request_id\": \"req_...\""
+                - generic [ref=e349]: "}"
+              - button "Copy to clipboard" [ref=e351] [cursor=pointer]
+            - paragraph [ref=e353]: "Common HTTP mappings:"
+            - table [ref=e354]:
+              - rowgroup [ref=e355]:
+                - row "Status When" [ref=e356]:
+                  - columnheader "Status" [ref=e357]
+                  - columnheader "When" [ref=e358]
+              - rowgroup [ref=e359]:
+                - row "400 Validation failure" [ref=e360]:
+                  - cell "400" [ref=e361]
+                  - cell "Validation failure" [ref=e362]
+                - row "404 Resource not found" [ref=e363]:
+                  - cell "404" [ref=e364]
+                  - cell "Resource not found" [ref=e365]
+                - row "409 Optimistic version conflict, role assignment conflict" [ref=e366]:
+                  - cell "409" [ref=e367]
+                  - cell "Optimistic version conflict, role assignment conflict" [ref=e368]
+                - row "412 Workflow guard rejection (before_exit blocked the transition)" [ref=e369]:
+                  - cell "412" [ref=e370]
+                  - cell "Workflow guard rejection (before_exit blocked the transition)" [ref=e371]:
+                    - text: Workflow guard rejection (
+                    - code [ref=e372]: before_exit
+                    - text: blocked the transition)
+                - row "422 Illegal state transition" [ref=e373]:
+                  - cell "422" [ref=e374]
+                  - cell "Illegal state transition" [ref=e375]
+                - row "500 Internal error" [ref=e376]:
+                  - cell "500" [ref=e377]
+                  - cell "Internal error" [ref=e378]
+            - heading "Server-Sent Events" [level=2] [ref=e379]
+            - paragraph [ref=e380]:
+              - code [ref=e381]: GET /api/v1/events
+              - text: streams
+              - code [ref=e382]: ForgeEvent
+              - text: payloads from the in-memory event bus. Useful for the web UI and for long-running scripts that want to react to state changes (
+              - code [ref=e383]: task.status_changed
+              - text: ","
+              - code [ref=e384]: execution.completed
+              - text: ", …) without polling."
+            - heading "MCP tools" [level=2] [ref=e385]
+            - paragraph [ref=e386]:
+              - text: Forge exposes 7 tools at
+              - code [ref=e387]: POST /mcp
+              - text: (JSON-RPC 2.0). The MCP server has its own
+              - code [ref=e388]: McpState
+              - text: and does not depend on the
+              - code [ref=e389]: api
+              - text: crate.
+            - table [ref=e390]:
+              - rowgroup [ref=e391]:
+                - row "Tool Purpose" [ref=e392]:
+                  - columnheader "Tool" [ref=e393]
+                  - columnheader "Purpose" [ref=e394]
+              - rowgroup [ref=e395]:
+                - row "forge_create_task Create a new task" [ref=e396]:
+                  - cell "forge_create_task" [ref=e397]:
+                    - code [ref=e398]: forge_create_task
+                  - cell "Create a new task" [ref=e399]
+                - row "forge_list_tasks List tasks with pagination" [ref=e400]:
+                  - cell "forge_list_tasks" [ref=e401]:
+                    - code [ref=e402]: forge_list_tasks
+                  - cell "List tasks with pagination" [ref=e403]
+                - row "forge_get_task Get task detail" [ref=e404]:
+                  - cell "forge_get_task" [ref=e405]:
+                    - code [ref=e406]: forge_get_task
+                  - cell "Get task detail" [ref=e407]
+                - row "forge_assign_agent Atomic claim" [ref=e408]:
+                  - cell "forge_assign_agent" [ref=e409]:
+                    - code [ref=e410]: forge_assign_agent
+                  - cell "Atomic claim" [ref=e411]
+                - row "forge_cancel_task Cancel task" [ref=e412]:
+                  - cell "forge_cancel_task" [ref=e413]:
+                    - code [ref=e414]: forge_cancel_task
+                  - cell "Cancel task" [ref=e415]
+                - row "forge_get_task_diff Get code diff" [ref=e416]:
+                  - cell "forge_get_task_diff" [ref=e417]:
+                    - code [ref=e418]: forge_get_task_diff
+                  - cell "Get code diff" [ref=e419]
+                - row "forge_list_executions List executions" [ref=e420]:
+                  - cell "forge_list_executions" [ref=e421]:
+                    - code [ref=e422]: forge_list_executions
+                  - cell "List executions" [ref=e423]
+            - paragraph [ref=e424]:
+              - text: Disable the endpoint with
+              - code [ref=e425]: forge --no-mcp
+              - text: if you don’t want it.
+            - heading "Execution logs" [level=2] [ref=e426]
+            - paragraph [ref=e427]:
+              - text: Execution chat history is backed by Forge JSONL logs plus execution prompt metadata, not by agent-private transcript storage. See
+              - link "execution-logs.md" [ref=e428] [cursor=pointer]:
+                - /url: /forge-docs/execution-logs/
+              - text: for the adapter-specific details and log schema.
+          - generic [ref=e429]:
+            - link "Edit page" [ref=e431] [cursor=pointer]:
+              - /url: https://github.com/ForgeAILab/forge/edit/main/docs/api.md
+              - img [ref=e432]
+              - text: Edit page
+            - generic [ref=e434]:
+              - link "Previous Getting started" [ref=e435] [cursor=pointer]:
+                - /url: /forge-docs/getting-started/
+                - img [ref=e436]
+                - generic [ref=e438]:
+                  - text: Previous
+                  - text: Getting started
+              - link "Next forge-ctl CLI" [ref=e439] [cursor=pointer]:
+                - /url: /forge-docs/cli/
+                - img [ref=e440]
+                - generic [ref=e442]:
+                  - text: Next
+                  - text: forge-ctl CLI
+  - generic [ref=e445]:
+    - button "Menu" [ref=e446]:
+      - img [ref=e448]
+      - generic: Menu
+    - button "Inspect" [ref=e452]:
+      - img [ref=e454]
+      - generic: Inspect
+    - button "Audit" [ref=e456]:
+      - generic [ref=e457]:
+        - img [ref=e458]
+        - img [ref=e461]
+      - generic: Audit
+    - button "Settings" [ref=e464]:
+      - img [ref=e466]
+      - generic: Settings
