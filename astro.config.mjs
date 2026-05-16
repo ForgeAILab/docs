@@ -8,8 +8,8 @@ export default defineConfig({
     starlight({
       title: 'Forge',
       logo: {
-        light: './src/assets/forge-wordmark.png',
-        dark: './src/assets/forge-wordmark.png',
+        light: './src/assets/forge-wordmark-light.png',
+        dark: './src/assets/forge-wordmark-dark.png',
         replacesTitle: true,
       },
       favicon: '/favicon.png',
