@@ -7,8 +7,8 @@ editUrl: https://github.com/ForgeAILab/forge/edit/main/docs/architecture.md
 
 Forge is a Rust workspace (12 crates) plus a React/TypeScript frontend. This
 doc explains the crate layout, the task state machine, the database, and the
-event bus. For runtime configuration see [getting-started.md](/forge-docs/getting-started/);
-for the HTTP surface see [api.md](/forge-docs/api/).
+event bus. For runtime configuration see [getting-started.md](/docs/getting-started/);
+for the HTTP surface see [api.md](/docs/api/).
 
 ## Crate layout
 

@@ -174,7 +174,7 @@ forge-ctl run --project <ID> --repo <ID> --agent <ID> \
 # Exits 0 on done; 1 on blocked / merge_failed / cancelled.
 ```
 
-Full CLI reference → [docs/cli.md](/forge-docs/cli/).
+Full CLI reference → [docs/cli.md](/docs/cli/).
 
 ## Linking an external daemon
 
@@ -197,7 +197,8 @@ and agent pinning.
 
 ## Where to next
 
-- **API surface** → [api.md](/forge-docs/api/)
-- **How it's wired together** → [architecture.md](/forge-docs/architecture/)
-- **Run agents from your AI tooling** → [api.md#mcp-tools](/forge-docs/api/#mcp-tools)
-- **Contribute** → [../CONTRIBUTING.md](https://github.com/ForgeAILab/forge/blob/main/CONTRIBUTING.md)
+- **Core concepts** → [/docs/concepts/](/docs/concepts/) (agents, tasks, worktrees, workflows, hooks, MCP, auth, …)
+- **API surface** → [api.md](/docs/api/)
+- **Run agents from your AI tooling** → [MCP for agents](/docs/concepts/mcp/)
+- **How it's wired together** → [architecture.md](/docs/architecture/)
+- **Contribute** → [CONTRIBUTING.md](https://github.com/ForgeAILab/forge/blob/main/CONTRIBUTING.md)

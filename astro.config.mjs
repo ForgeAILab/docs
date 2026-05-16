@@ -45,6 +45,25 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Concepts',
+          items: [
+            { label: 'Overview', slug: 'concepts' },
+            { label: 'Agents', slug: 'concepts/agents' },
+            { label: 'Tasks', slug: 'concepts/tasks' },
+            { label: 'Workspaces', slug: 'concepts/workspaces' },
+            { label: 'Workflows', slug: 'concepts/workflows' },
+            { label: 'Review & merge', slug: 'concepts/review-and-merge' },
+            { label: 'Subtasks & dependencies', slug: 'concepts/subtasks-and-dependencies' },
+            { label: 'Lifecycle hooks', slug: 'concepts/hooks' },
+            { label: 'Chat & follow-ups', slug: 'concepts/chat-and-follow-ups' },
+            { label: 'Knowledge', slug: 'concepts/knowledge' },
+            { label: 'External issues', slug: 'concepts/external-issues' },
+            { label: 'Notifications', slug: 'concepts/notifications' },
+            { label: 'Auth & users', slug: 'concepts/auth' },
+            { label: 'MCP for agents', slug: 'concepts/mcp' },
+          ],
+        },
+        {
           label: 'Reference',
           items: [
             { label: 'REST API & MCP tools', slug: 'api' },
