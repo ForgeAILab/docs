@@ -1,9 +1,9 @@
 ---
 title: Forge
-description: The self-hosted workflow engine for coding agents. Plug it into Claude Code, Codex, or any MCP-aware agent and operate tasks with isolated worktrees, CI gates, review, and merge.
+description: A self-hosted workflow engine that lets you assign the right coding agent to the right stage. Codex for coding, Claude Sonnet for UI work, a lighter model for review — each with its own prompt, running through isolated worktrees, gates, and merge.
 template: splash
 hero:
-  tagline: The self-hosted workflow engine for coding agents. Plug it into Claude Code, Codex, or any MCP-aware agent and ship work from chat.
+  tagline: Pick the right agent for each stage. Forge runs the handoff — plan, code, review, merge — with isolated worktrees and gates between every step.
   image:
     dark: ../../assets/forge-wordmark-dark.png
     light: ../../assets/forge-wordmark-light.png
@@ -22,30 +22,54 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 
 ## What is Forge?
 
-Forge is a single Rust binary that gives every coding-agent task a real lifecycle:
-`todo → in_progress → review → merging → done`. Each task gets its own isolated git
-worktree, a configurable CI review gate, and an audit log. You drive it through a REST
-API, an MCP endpoint, the `forge-ctl` CLI, or the built-in web UI — all served from
-`127.0.0.1:8080`.
+Forge is a self-hosted workflow engine for coding agents. Instead of pointing one
+agent at a repo and hoping for the best, you describe the **stages** of your work —
+plan, code, review, merge — and assign a different agent, model, and prompt to each
+one. Forge owns the handoff between them.
+
+Concretely, that means you can:
+
+- Send the **coding** stage to Codex with a strict implementation prompt.
+- Send **web UI** tasks to Claude Sonnet, which tends to be the strongest there,
+  with a design-aware prompt.
+- Send **review** to a lighter or cheaper model — or another Claude instance — with
+  a critic-style prompt that only looks for regressions.
+- Keep humans in the loop at any gate you don't want fully automated.
+
+Each task runs in its own git worktree, hits the gates you defined, and merges only
+after they pass. You drive the whole thing from a REST API, an MCP endpoint, the
+`forge-ctl` CLI, or the built-in web UI on `127.0.0.1:8080`.
 
 <CardGrid stagger>
-  <Card title="Plug into your agent" icon="puzzle">
-    Forge speaks MCP. Add `http://127.0.0.1:8080/mcp` to Claude Code, Codex, Cursor,
-    or any MCP-aware client and your chat workflow becomes a task pipeline.
+  <Card title="Right agent, right stage" icon="random">
+    Assign different executors per role: Codex to code, Claude to review, a lighter
+    model to triage. Each role gets its own model and prompt template — no more
+    one-agent-does-everything.
   </Card>
   <Card title="Isolated worktrees" icon="seti:folder">
     Every task runs in its own git checkout with file-locking and path guardrails.
     Agents can't step on each other; you can throw work away cleanly.
   </Card>
-  <Card title="CI review gates" icon="approve-check">
-    Declare `ci_steps` per task; the review runner blocks merge until they pass.
-    Combine with auditor-style checks for human-in-the-loop.
+  <Card title="Gates between stages" icon="approve-check">
+    Declare CI steps, reviewer agents, or human approval at any state in the
+    workflow. Nothing moves to the next stage — or to merge — until the gate passes.
   </Card>
   <Card title="Self-hosted, MIT" icon="laptop">
     Run Forge in your own environment. SQLite + WAL, no accounts, no telemetry,
     no SaaS — your code never leaves your infrastructure.
   </Card>
 </CardGrid>
+
+## The mental model
+
+A Forge project has a **workflow** (the stages), a set of **agents** (executor +
+model + prompt, bound to a daemon), and **tasks** that flow through the workflow.
+At each stage, the workflow's role (`planner`, `coder`, `reviewer`, …) is matched
+to an agent you've registered for that role. Swap the agent and you swap who does
+that stage — without touching the task or the rest of the pipeline.
+
+That's the whole pitch: workflows hold the shape of the work, agents hold the
+expertise, and Forge keeps them from stepping on each other.
 
 ## Where next?
 
